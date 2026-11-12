@@ -1,0 +1,16 @@
+[package]
+name = "boot-build"
+description = "启动器的构建脚本用：从各包的元数据生成组件列表，不用手写。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+toml.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,32 @@
+[package]
+name = "lifelog-tui"
+description = "启动器：终端界面，翻看记录。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+boot.workspace = true
+kernel-api.workspace = true
+cli-contract.workspace = true
+tui-contract.workspace = true
+serde_json.workspace = true
+vectors-contracts.workspace = true
+
+# 这个进程里的组件。加一行就多装一个，不用改代码。
+activity.workspace = true
+clock-system.workspace = true
+log-stderr.workspace = true
+query.workspace = true
+search.workspace = true
+storage-sqlite.workspace = true
+documents.workspace = true
+tokenizer-cjk.workspace = true
+tui-ratatui.workspace = true
+
+[build-dependencies]
+boot-build.workspace = true
+
+[lints]
+workspace = true

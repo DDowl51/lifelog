@@ -1,0 +1,19 @@
+[package]
+name = "activity-contracts"
+description = "activity 对外的契约：活动记录的写入、读取、处理器扩展点。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+# 假实现，给别的包的测试用。
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,21 @@
+[package]
+name = "clock-contract"
+description = "契约：现在几点。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+# 假实现和契约测试，给别的包的测试用。
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+
+[lints]
+workspace = true

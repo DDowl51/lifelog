@@ -1,0 +1,15 @@
+[package]
+name = "query-contracts"
+description = "query 对外的契约：只读查询。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+kernel-api.workspace = true
+search-contracts.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

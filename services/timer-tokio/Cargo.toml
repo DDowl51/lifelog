@@ -1,0 +1,24 @@
+[package]
+name = "timer-tokio"
+description = "系统服务：用 tokio 的时钟提供 Timer。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "timer-tokio"
+
+[dependencies]
+kernel-api.workspace = true
+timer-contract.workspace = true
+serde.workspace = true
+tokio.workspace = true
+
+[dev-dependencies]
+timer-contract = { workspace = true, features = ["testing"] }
+testkit.workspace = true
+tokio = { workspace = true, features = ["test-util"] }
+
+[lints]
+workspace = true

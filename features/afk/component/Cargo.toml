@@ -1,0 +1,33 @@
+[package]
+name = "afk"
+description = "应用功能：把离开和回来变成离开时段。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "afk"
+
+[dependencies]
+kernel-api.workspace = true
+afk-core.workspace = true
+activity-contracts.workspace = true
+clock-contract.workspace = true
+idle-contract.workspace = true
+log-contract.workspace = true
+timer-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+activity-contracts = { workspace = true, features = ["testing"] }
+clock-contract = { workspace = true, features = ["testing"] }
+idle-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+timer-contract = { workspace = true, features = ["testing"] }
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

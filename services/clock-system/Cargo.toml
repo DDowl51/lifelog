@@ -1,0 +1,25 @@
+[package]
+name = "clock-system"
+description = "系统服务：用操作系统的时钟提供 Clock。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "clock-system"
+
+[dependencies]
+kernel-api.workspace = true
+clock-contract.workspace = true
+jiff.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

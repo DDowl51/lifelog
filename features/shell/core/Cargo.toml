@@ -1,0 +1,17 @@
+[package]
+name = "shell-core"
+description = "shell 的纯逻辑：把执行过的命令变成活动。不碰 IO。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+activity-contracts.workspace = true
+shell-contract.workspace = true
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

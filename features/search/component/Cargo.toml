@@ -1,0 +1,39 @@
+[package]
+name = "search"
+description = "应用功能：给记下的活动建全文索引，并在里面检索。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "search"
+
+[dependencies]
+kernel-api.workspace = true
+search-contracts.workspace = true
+search-core.workspace = true
+activity-contracts.workspace = true
+documents-contracts.workspace = true
+vectors-contracts.workspace = true
+jiff.workspace = true
+log-contract.workspace = true
+sql-contract.workspace = true
+timer-contract.workspace = true
+tokenizer-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+documents.workspace = true
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+timer-contract = { workspace = true, features = ["testing"] }
+activity.workspace = true
+storage-sqlite.workspace = true
+tokenizer-cjk.workspace = true
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,17 @@
+[package]
+name = "mcp-contract"
+description = "契约：给 agent 用的工具服务（MCP）。扩展点：各组件登记自己的工具。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

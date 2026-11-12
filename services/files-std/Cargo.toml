@@ -1,0 +1,25 @@
+[package]
+name = "files-std"
+description = "系统服务：用本机的一个目录提供 Files。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "files-std"
+
+[dependencies]
+kernel-api.workspace = true
+files-contract.workspace = true
+serde.workspace = true
+tokio.workspace = true
+
+[dev-dependencies]
+files-contract = { workspace = true, features = ["testing"] }
+serde_json.workspace = true
+tempfile.workspace = true
+testkit.workspace = true
+
+[lints]
+workspace = true

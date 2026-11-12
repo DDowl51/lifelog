@@ -1,0 +1,12 @@
+[Unit]
+Description=lifelog：每天 04:30 生成昨天的摘要
+
+[Timer]
+# 日界默认是 04:00，过了日界才算「昨天」结束
+OnCalendar=*-*-* 04:30
+# 关机错过了，开机后补
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target

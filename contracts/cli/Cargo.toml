@@ -1,0 +1,17 @@
+[package]
+name = "cli-contract"
+description = "契约：命令行。扩展点：各组件登记自己的子命令。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

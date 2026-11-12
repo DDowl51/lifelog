@@ -1,0 +1,20 @@
+[package]
+name = "shell-contract"
+description = "契约：增量读 shell 执行过的命令。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,20 @@
+[package]
+name = "browser-contract"
+description = "契约：增量读浏览器的访问历史。扩展点，每种浏览器一个登记者。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+
+[lints]
+workspace = true

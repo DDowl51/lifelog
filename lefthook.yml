@@ -1,0 +1,5 @@
+# 提交前跑全量检查。安装：lefthook install
+pre-commit:
+  commands:
+    check:
+      run: scripts/check.sh

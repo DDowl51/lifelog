@@ -1,0 +1,20 @@
+[package]
+name = "query-core"
+description = "query 的纯逻辑：逻辑日、日期参数、报告的文本排版。不碰 IO。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+query-contracts.workspace = true
+search-contracts.workspace = true
+activity-contracts.workspace = true
+tui-contract.workspace = true
+clock-contract.workspace = true
+jiff.workspace = true
+unicode-width.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

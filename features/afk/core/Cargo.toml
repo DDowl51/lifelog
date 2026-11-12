@@ -1,0 +1,15 @@
+[package]
+name = "afk-core"
+description = "afk 的纯逻辑：把离开和回来变成离开时段。不碰 IO。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+activity-contracts.workspace = true
+clock-contract.workspace = true
+idle-contract.workspace = true
+
+[lints]
+workspace = true

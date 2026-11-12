@@ -1,0 +1,21 @@
+[package]
+name = "kernel"
+description = "kernel 的实现：生命周期、命名、消息传递、监听点。不认识任何 lifelog 名词。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+kernel-api.workspace = true
+tokio = { workspace = true, features = ["net", "io-util"] }
+tokio-util.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
+serde.workspace = true
+serde_json.workspace = true
+tempfile.workspace = true
+
+[lints]
+workspace = true

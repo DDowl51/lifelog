@@ -1,0 +1,15 @@
+[package]
+name = "testkit"
+description = "测试用：只装指定的组件、手动投递事件、把监听记录收在内存里。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+kernel-api.workspace = true
+kernel.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

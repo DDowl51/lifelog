@@ -1,0 +1,40 @@
+[package]
+name = "summary"
+description = "应用功能：生成每日摘要。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "summary"
+
+[dependencies]
+kernel-api.workspace = true
+summary-contracts.workspace = true
+summary-core.workspace = true
+query-contracts.workspace = true
+documents-contracts.workspace = true
+files-contract.workspace = true
+llm-contract.workspace = true
+log-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+files-contract = { workspace = true, features = ["testing"] }
+llm-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+activity.workspace = true
+activity-contracts.workspace = true
+documents.workspace = true
+documents-contracts.workspace = true
+jiff.workspace = true
+query.workspace = true
+storage-sqlite.workspace = true
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

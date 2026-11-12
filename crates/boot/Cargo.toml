@@ -1,0 +1,21 @@
+[package]
+name = "boot"
+description = "启动库：读配置文件、解析 *_cmd、收集组件、信号、追踪输出。组件不能依赖它。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+kernel-api.workspace = true
+kernel.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "signal"] }
+toml.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,30 @@
+[package]
+name = "idle-wayland"
+description = "系统服务：用 Wayland 的 ext-idle-notify-v1 报告用户离开和回来。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "idle-wayland"
+
+[dependencies]
+kernel-api.workspace = true
+clock-contract.workspace = true
+idle-contract.workspace = true
+log-contract.workspace = true
+rustix.workspace = true
+serde.workspace = true
+tokio.workspace = true
+wayland-client.workspace = true
+wayland-protocols.workspace = true
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+serde_json.workspace = true
+testkit.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,17 @@
+[package]
+name = "llm-contract"
+description = "契约：让语言模型补全一段对话。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

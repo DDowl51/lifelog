@@ -1,0 +1,35 @@
+[package]
+name = "vectors"
+description = "应用功能：给文档（摘要、笔记）算向量，按意思检索。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "vectors"
+
+[dependencies]
+kernel-api.workspace = true
+vectors-contracts.workspace = true
+vectors-core.workspace = true
+documents-contracts.workspace = true
+embedder-contract.workspace = true
+log-contract.workspace = true
+sql-contract.workspace = true
+timer-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+embedder-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+timer-contract = { workspace = true, features = ["testing"] }
+documents.workspace = true
+storage-sqlite.workspace = true
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

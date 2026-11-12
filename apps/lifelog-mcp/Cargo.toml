@@ -1,0 +1,32 @@
+[package]
+name = "lifelog-mcp"
+description = "启动器：给 agent 用的 MCP 服务（标准输入输出），只读地查记录。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+boot.workspace = true
+kernel-api.workspace = true
+cli-contract.workspace = true
+mcp-contract.workspace = true
+serde_json.workspace = true
+vectors-contracts.workspace = true
+
+# 这个进程里的组件。加一行就多装一个，不用改代码。
+activity.workspace = true
+clock-system.workspace = true
+log-stderr.workspace = true
+mcp-stdio.workspace = true
+query.workspace = true
+search.workspace = true
+storage-sqlite.workspace = true
+documents.workspace = true
+tokenizer-cjk.workspace = true
+
+[build-dependencies]
+boot-build.workspace = true
+
+[lints]
+workspace = true

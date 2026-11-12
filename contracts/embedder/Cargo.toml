@@ -1,0 +1,17 @@
+[package]
+name = "embedder-contract"
+description = "契约：把文字变成向量（嵌入）。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[features]
+testing = []
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

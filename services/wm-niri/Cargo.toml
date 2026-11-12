@@ -1,0 +1,28 @@
+[package]
+name = "wm-niri"
+description = "系统服务：连 niri 的事件流，提供 Windows。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "wm-niri"
+
+[dependencies]
+kernel-api.workspace = true
+clock-contract.workspace = true
+log-contract.workspace = true
+window-contract.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio = { workspace = true, features = ["net", "io-util"] }
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+tempfile.workspace = true
+testkit.workspace = true
+
+[lints]
+workspace = true

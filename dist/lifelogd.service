@@ -1,0 +1,13 @@
+[Unit]
+Description=lifelog：记录电脑上的活动
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.cargo/bin/lifelogd
+# 后台任务崩溃时 lifelogd 以非 0 退出，交给 systemd 重启
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

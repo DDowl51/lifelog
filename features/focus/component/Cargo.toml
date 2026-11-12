@@ -1,0 +1,37 @@
+[package]
+name = "focus"
+description = "应用功能：把焦点变化变成窗口使用时段。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "focus"
+
+[dependencies]
+kernel-api.workspace = true
+focus-core.workspace = true
+activity-contracts.workspace = true
+clock-contract.workspace = true
+log-contract.workspace = true
+timer-contract.workspace = true
+window-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+activity-contracts = { workspace = true, features = ["testing"] }
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+timer-contract = { workspace = true, features = ["testing"] }
+window-contract = { workspace = true, features = ["testing"] }
+activity.workspace = true
+storage-sqlite.workspace = true
+wm-niri.workspace = true
+jiff.workspace = true
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,31 @@
+[package]
+name = "activity"
+description = "应用功能：活动记录的入库和读取。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "activity"
+
+[dependencies]
+kernel-api.workspace = true
+activity-contracts.workspace = true
+activity-core.workspace = true
+clock-contract.workspace = true
+log-contract.workspace = true
+sql-contract.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+storage-sqlite.workspace = true
+jiff.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

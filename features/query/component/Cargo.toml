@@ -1,0 +1,42 @@
+[package]
+name = "query"
+description = "应用功能：对外的只读查询。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "query"
+
+[dependencies]
+kernel-api.workspace = true
+query-contracts.workspace = true
+query-core.workspace = true
+mcp-contract.workspace = true
+search-contracts.workspace = true
+activity-contracts.workspace = true
+cli-contract.workspace = true
+clock-contract.workspace = true
+tui-contract.workspace = true
+jiff.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+mcp-contract = { workspace = true, features = ["testing"] }
+search.workspace = true
+tokenizer-cjk.workspace = true
+timer-contract = { workspace = true, features = ["testing"] }
+tui-contract = { workspace = true, features = ["testing"] }
+cli-contract = { workspace = true, features = ["testing"] }
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+activity.workspace = true
+storage-sqlite.workspace = true
+jiff.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

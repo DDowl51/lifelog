@@ -1,0 +1,36 @@
+[package]
+name = "browsing"
+description = "应用功能：把浏览器的访问历史导入成活动。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "browsing"
+
+[dependencies]
+kernel-api.workspace = true
+browsing-core.workspace = true
+activity-contracts.workspace = true
+browser-contract.workspace = true
+clock-contract.workspace = true
+log-contract.workspace = true
+sql-contract.workspace = true
+timer-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+activity-contracts = { workspace = true, features = ["testing"] }
+browser-contract = { workspace = true, features = ["testing"] }
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+timer-contract = { workspace = true, features = ["testing"] }
+browser-history.workspace = true
+storage-sqlite.workspace = true
+serde_json.workspace = true
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

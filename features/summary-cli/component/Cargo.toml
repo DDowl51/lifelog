@@ -1,0 +1,19 @@
+[package]
+name = "summary-cli"
+description = "应用功能：把 lifelog summarize 登记到命令行，调 Summarize。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "summary-cli"
+
+[dependencies]
+kernel-api.workspace = true
+summary-contracts.workspace = true
+cli-contract.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

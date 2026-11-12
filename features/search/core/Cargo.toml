@@ -1,0 +1,15 @@
+[package]
+name = "search-core"
+description = "search 的纯逻辑：要索引的文字、查询表达式、合并结果。不碰 IO。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+activity-contracts.workspace = true
+search-contracts.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

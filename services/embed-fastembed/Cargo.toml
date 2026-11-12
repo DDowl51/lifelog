@@ -1,0 +1,24 @@
+[package]
+name = "embed-fastembed"
+description = "系统服务：在本机用 ONNX 模型（fastembed）提供 Embedder。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "embed-fastembed"
+
+[dependencies]
+kernel-api.workspace = true
+embedder-contract.workspace = true
+fastembed = "5.17"
+serde.workspace = true
+tokio.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true
+testkit.workspace = true
+
+[lints]
+workspace = true

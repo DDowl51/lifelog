@@ -1,0 +1,14 @@
+[package]
+name = "vectors-contracts"
+description = "vectors 对外的契约：按意思找文档（向量检索）。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+kernel-api.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

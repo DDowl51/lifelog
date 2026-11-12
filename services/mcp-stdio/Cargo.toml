@@ -1,0 +1,23 @@
+[package]
+name = "mcp-stdio"
+description = "系统服务：在标准输入输出上讲 MCP（JSON-RPC 2.0，一行一条），工具由各组件登记。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "mcp-stdio"
+
+[dependencies]
+kernel-api.workspace = true
+mcp-contract.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio = { workspace = true, features = ["io-std", "io-util"] }
+
+[dev-dependencies]
+testkit.workspace = true
+
+[lints]
+workspace = true

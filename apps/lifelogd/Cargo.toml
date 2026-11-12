@@ -1,0 +1,48 @@
+[package]
+name = "lifelogd"
+description = "启动器：常驻进程，记录电脑上的活动。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+boot.workspace = true
+kernel-api.workspace = true
+cli-contract.workspace = true
+
+# 这个进程里的组件。加一行就多装一个，不用改代码。
+activity.workspace = true
+afk.workspace = true
+browser-chromium.workspace = true
+browser-firefox.workspace = true
+browser-history.workspace = true
+browser-qutebrowser.workspace = true
+browsing.workspace = true
+clock-system.workspace = true
+documents.workspace = true
+files-std.workspace = true
+focus.workspace = true
+idle-wayland.workspace = true
+llm-openai-compat.workspace = true
+notes.workspace = true
+log-stderr.workspace = true
+privacy.workspace = true
+project.workspace = true
+query.workspace = true
+search.workspace = true
+shell.workspace = true
+shell-atuin.workspace = true
+storage-sqlite.workspace = true
+embed-fastembed.workspace = true
+vectors.workspace = true
+summary.workspace = true
+tokenizer-cjk.workspace = true
+timer-tokio.workspace = true
+wm-niri.workspace = true
+
+[build-dependencies]
+boot-build.workspace = true
+
+[lints]
+workspace = true

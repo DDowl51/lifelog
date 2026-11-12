@@ -1,0 +1,118 @@
+[workspace]
+resolver = "3"
+# 通配符匹配不到目录时 cargo 会报错，所以目录出现一个加一个。
+members = ["crates/*", "contracts/*", "services/*", "features/*/*", "apps/*", "tests/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+kernel-api = { path = "crates/kernel-api" }
+kernel = { path = "crates/kernel" }
+boot = { path = "crates/boot" }
+boot-build = { path = "crates/boot-build" }
+testkit = { path = "crates/testkit" }
+
+browser-contract = { path = "contracts/browser" }
+cli-contract = { path = "contracts/cli" }
+clock-contract = { path = "contracts/clock" }
+embedder-contract = { path = "contracts/embedder" }
+files-contract = { path = "contracts/files" }
+idle-contract = { path = "contracts/idle" }
+llm-contract = { path = "contracts/llm" }
+log-contract = { path = "contracts/log" }
+mcp-contract = { path = "contracts/mcp" }
+sql-contract = { path = "contracts/sql" }
+shell-contract = { path = "contracts/shell" }
+timer-contract = { path = "contracts/timer" }
+tokenizer-contract = { path = "contracts/tokenizer" }
+tui-contract = { path = "contracts/tui" }
+window-contract = { path = "contracts/window" }
+
+activity-contracts = { path = "features/activity/contracts" }
+activity-core = { path = "features/activity/core" }
+activity = { path = "features/activity/component" }
+afk-core = { path = "features/afk/core" }
+afk = { path = "features/afk/component" }
+browsing-core = { path = "features/browsing/core" }
+browsing = { path = "features/browsing/component" }
+documents-contracts = { path = "features/documents/contracts" }
+documents = { path = "features/documents/component" }
+focus-core = { path = "features/focus/core" }
+focus = { path = "features/focus/component" }
+privacy-core = { path = "features/privacy/core" }
+privacy = { path = "features/privacy/component" }
+project-core = { path = "features/project/core" }
+project = { path = "features/project/component" }
+shell-core = { path = "features/shell/core" }
+shell = { path = "features/shell/component" }
+search-contracts = { path = "features/search/contracts" }
+summary-contracts = { path = "features/summary/contracts" }
+summary-core = { path = "features/summary/core" }
+summary = { path = "features/summary/component" }
+summary-cli = { path = "features/summary-cli/component" }
+search-core = { path = "features/search/core" }
+search = { path = "features/search/component" }
+vectors-contracts = { path = "features/vectors/contracts" }
+vectors-core = { path = "features/vectors/core" }
+vectors = { path = "features/vectors/component" }
+notes-core = { path = "features/notes/core" }
+notes = { path = "features/notes/component" }
+query-contracts = { path = "features/query/contracts" }
+query-core = { path = "features/query/core" }
+query = { path = "features/query/component" }
+
+browser-chromium = { path = "services/browser-chromium" }
+browser-firefox = { path = "services/browser-firefox" }
+browser-history = { path = "services/browser-history" }
+browser-qutebrowser = { path = "services/browser-qutebrowser" }
+cli-clap = { path = "services/cli-clap" }
+clock-system = { path = "services/clock-system" }
+embed-fastembed = { path = "services/embed-fastembed" }
+files-std = { path = "services/files-std" }
+idle-wayland = { path = "services/idle-wayland" }
+shell-atuin = { path = "services/shell-atuin" }
+tokenizer-cjk = { path = "services/tokenizer-cjk" }
+llm-openai-compat = { path = "services/llm-openai-compat" }
+log-stderr = { path = "services/log-stderr" }
+mcp-stdio = { path = "services/mcp-stdio" }
+storage-sqlite = { path = "services/storage-sqlite" }
+timer-tokio = { path = "services/timer-tokio" }
+tui-ratatui = { path = "services/tui-ratatui" }
+wm-niri = { path = "services/wm-niri" }
+
+async-trait = "0.1"
+clap = { version = "4.5", default-features = false, features = ["std", "help", "usage", "error-context", "suggestions", "string"] }
+unicode-width = "0.2"
+inventory = "0.3"
+ratatui = "0.30"
+regex = "1"
+rustix = { version = "1", features = ["event"] }
+wayland-client = "0.31"
+wayland-protocols = { version = "0.32", features = ["client", "staging"] }
+rusqlite = { version = "0.40", features = ["bundled", "hooks"] }
+sha2 = "0.10"
+tempfile = "3"
+jiff = { version = "0.2", features = ["serde"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["rt", "macros", "sync", "time"] }
+tokio-util = "0.7"
+toml = "1.1"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+dbg_macro = "deny"
+print_stdout = "deny"
+print_stderr = "deny"
+
+[profile.dev.package."*"]
+opt-level = 2

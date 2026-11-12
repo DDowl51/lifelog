@@ -1,0 +1,27 @@
+[package]
+name = "storage-sqlite"
+description = "系统服务：用一个 SQLite 文件提供 Sql，启动时执行各组件登记的迁移。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "storage-sqlite"
+
+[dependencies]
+kernel-api.workspace = true
+sql-contract.workspace = true
+rusqlite.workspace = true
+serde.workspace = true
+sha2.workspace = true
+tokio.workspace = true
+
+[dev-dependencies]
+sql-contract = { workspace = true, features = ["testing"] }
+serde_json.workspace = true
+tempfile.workspace = true
+testkit.workspace = true
+
+[lints]
+workspace = true

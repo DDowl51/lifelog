@@ -1,0 +1,19 @@
+[package]
+name = "focus-core"
+description = "focus 的纯逻辑：标题规范化、焦点时段状态机。不碰 IO。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+activity-contracts.workspace = true
+clock-contract.workspace = true
+window-contract.workspace = true
+regex.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true
+
+[lints]
+workspace = true

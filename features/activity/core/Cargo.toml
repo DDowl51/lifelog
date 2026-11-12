@@ -1,0 +1,21 @@
+[package]
+name = "activity-core"
+description = "activity 的纯逻辑：校验、处理器排序、提交用例。不碰 IO。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+kernel-api.workspace = true
+activity-contracts.workspace = true
+clock-contract.workspace = true
+log-contract.workspace = true
+
+[dev-dependencies]
+clock-contract = { workspace = true, features = ["testing"] }
+log-contract = { workspace = true, features = ["testing"] }
+tokio.workspace = true
+
+[lints]
+workspace = true

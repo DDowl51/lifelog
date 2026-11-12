@@ -1,0 +1,8 @@
+[Unit]
+Description=lifelog：生成每日摘要（交给 lifelogd 做）
+After=lifelogd.service
+Requires=lifelogd.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.cargo/bin/lifelog summarize

@@ -1,0 +1,23 @@
+[package]
+name = "tokenizer-cjk"
+description = "系统服务：不用词典的分词。英文和代码按词，中日韩文字按相邻两字。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[package.metadata.component]
+id = "tokenizer-cjk"
+
+[dependencies]
+kernel-api.workspace = true
+tokenizer-contract.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+tokenizer-contract = { workspace = true, features = ["testing"] }
+testkit.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

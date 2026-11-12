@@ -1,0 +1,21 @@
+[package]
+name = "kernel-api"
+description = "组件能看到的全部 kernel 接口。只有定义，没有实现。"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+inventory.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio-util.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+
+[lints]
+workspace = true
