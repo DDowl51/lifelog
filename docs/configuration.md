@@ -347,11 +347,13 @@ timeline_absorb_secs = 60
 ```toml
 [components.tui-ratatui]
 refresh_secs = 30
+opener = ["xdg-open"]   # 页面要求打开网址或文件时用的命令；lifelog 的页面目前不用
 ```
 
 | 键 | 说明 |
 |---|---|
 | `refresh_secs` | 停在今天那一页时，每隔多久自动刷新。`0` = 不自动刷新 |
+| `opener` | 页面要求打开网址或文件时运行的命令，网址或路径加在最后 |
 
 ### mcp-stdio
 

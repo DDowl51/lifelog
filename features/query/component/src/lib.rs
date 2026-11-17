@@ -32,7 +32,9 @@ use query_core::{
 use search_contracts::{SEARCH, Search, SearchQuery};
 use serde::Deserialize;
 use serde::Serialize;
-use tui_contract::{PageProvider, PageRequest, PageSpec, PageView, TUI_PAGES};
+use tui_contract::{
+    ActionRequest, ActionResult, PageProvider, PageRequest, PageSpec, PageView, TUI_PAGES,
+};
 
 #[derive(Debug, Deserialize, Serialize, PartialEq, Eq)]
 #[serde(deny_unknown_fields, default)]
@@ -614,6 +616,7 @@ fn page(id: &str, title: &str, key: char, order: i32) -> PageSpec {
         key,
         order,
         input: None,
+        actions: vec![],
     }
 }
 
@@ -634,6 +637,14 @@ impl PageProvider for Pages {
             pages.push(search);
         }
         Ok(pages)
+    }
+
+    /// 这些页面都是只读的，没有声明按键，外壳不会调到这里。
+    async fn act(&self, page: String, request: ActionRequest) -> Result<ActionResult, AppError> {
+        Err(AppError::validation(format!(
+            "页面 `{page}` 没有按键 `{}`",
+            request.key
+        )))
     }
 
     async fn render(&self, page: String, request: PageRequest) -> Result<PageView, AppError> {
