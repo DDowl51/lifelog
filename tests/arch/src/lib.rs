@@ -103,6 +103,8 @@ pub fn classify(rel_path: &str) -> Option<Role> {
         ["crates", "testkit"] => Some(Role::Testkit),
         // 构建脚本用的小工具，不进运行时
         ["crates", "boot-build"] => Some(Role::Tool),
+        // 测试用的小工具：核对配置文档和代码里的默认值
+        ["crates", "config-doc"] => Some(Role::Tool),
         ["contracts", _] => Some(Role::Contract),
         ["services", _] => Some(Role::Service),
         ["features", id, "contracts"] => Some(Role::FeatureContracts((*id).to_owned())),

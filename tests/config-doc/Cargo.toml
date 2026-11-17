@@ -1,17 +1,15 @@
 [package]
-name = "config-doc"
+name = "config-doc-test"
 description = "检查 docs/configuration.md：每个组件都有一节，写的键和默认值和代码一致。"
 version.workspace = true
 license.workspace = true
 edition.workspace = true
 publish.workspace = true
 
-[dependencies]
-boot.workspace = true
-kernel-api.workspace = true
-serde_json.workspace = true
-toml.workspace = true
+[dev-dependencies]
+config-doc.workspace = true
 
+[dependencies]
 # 全部组件。少了哪个，测试会指出来。
 browser-chromium.workspace = true
 browser-firefox.workspace = true

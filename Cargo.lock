@@ -598,9 +598,18 @@ dependencies = [
 name = "config-doc"
 version = "0.1.0"
 dependencies = [
+ "boot",
+ "kernel-api",
+ "serde_json",
+ "toml",
+]
+
+[[package]]
+name = "config-doc-test"
+version = "0.1.0"
+dependencies = [
  "activity",
  "afk",
- "boot",
  "boot-build",
  "browser-chromium",
  "browser-firefox",
@@ -609,12 +618,12 @@ dependencies = [
  "browsing",
  "cli-clap",
  "clock-system",
+ "config-doc",
  "documents",
  "embed-fastembed",
  "files-std",
  "focus",
  "idle-wayland",
- "kernel-api",
  "llm-openai-compat",
  "log-stderr",
  "mcp-stdio",
@@ -623,7 +632,6 @@ dependencies = [
  "project",
  "query",
  "search",
- "serde_json",
  "shell",
  "shell-atuin",
  "storage-sqlite",
@@ -631,7 +639,6 @@ dependencies = [
  "summary-cli",
  "timer-tokio",
  "tokenizer-cjk",
- "toml",
  "tui-ratatui",
  "vectors",
  "wm-niri",
