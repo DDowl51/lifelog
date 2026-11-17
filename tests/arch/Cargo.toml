@@ -6,7 +6,8 @@ license.workspace = true
 edition.workspace = true
 publish.workspace = true
 
-[dependencies]
+[dev-dependencies]
+# 只有对真实 workspace 跑检查的集成测试用（解析 cargo metadata）
 serde = { workspace = true }
 serde_json = { workspace = true }
 
