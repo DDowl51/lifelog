@@ -153,6 +153,7 @@ mod tests {
             app_id: Some(app.to_owned()),
             title: Some(title.to_owned()),
             workspace: None,
+            pid: None,
         })
     }
 
@@ -293,6 +294,7 @@ mod tests {
                 app_id: None,
                 title: None,
                 workspace: None,
+                pid: None,
             }),
             at(0),
         );
