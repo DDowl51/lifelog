@@ -12,7 +12,6 @@ publish = false
 [workspace.dependencies]
 # kernel 和通用系统服务在共享仓库 mk-kit（../mk-kit），这里用 path 依赖。
 kernel-api = { path = "../mk-kit/crates/kernel-api" }
-kernel = { path = "../mk-kit/crates/kernel" }
 boot = { path = "../mk-kit/crates/boot" }
 boot-build = { path = "../mk-kit/crates/boot-build" }
 testkit = { path = "../mk-kit/crates/testkit" }
@@ -85,11 +84,7 @@ timer-tokio = { path = "../mk-kit/services/timer-tokio" }
 tui-ratatui = { path = "../mk-kit/services/tui-ratatui" }
 wm-niri = { path = "../mk-kit/services/wm-niri" }
 
-async-trait = "0.1"
-clap = { version = "4.5", default-features = false, features = ["std", "help", "usage", "error-context", "suggestions", "string"] }
 unicode-width = "0.2"
-inventory = "0.3"
-ratatui = "0.30"
 regex = "1"
 rustix = { version = "1", features = ["event"] }
 wayland-client = "0.31"
@@ -100,9 +95,7 @@ tempfile = "3"
 jiff = { version = "0.2", features = ["serde"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-thiserror = "2"
 tokio = { version = "1", features = ["rt", "macros", "sync", "time"] }
-tokio-util = "0.7"
 toml = "1.1"
 
 [workspace.lints.rust]
