@@ -30,8 +30,23 @@ struct MetaDep {
     path: Option<PathBuf>,
 }
 
+/// 包相对于它所在仓库根目录的路径。
+///
+/// 本仓库的包相对于 workspace 根；path 依赖进来的共享仓库（mk-kit）里的包，
+/// 相对于离它最近的、`Cargo.toml` 里有 `[workspace]` 的上级目录。这样共享仓库里的包也按目录得到角色。
 fn rel_dir(root: &Path, dir: &Path) -> String {
-    dir.strip_prefix(root)
+    let base = if dir.starts_with(root) {
+        root.to_path_buf()
+    } else {
+        dir.ancestors()
+            .skip(1)
+            .find(|a| {
+                std::fs::read_to_string(a.join("Cargo.toml"))
+                    .is_ok_and(|t| t.lines().any(|l| l.trim() == "[workspace]"))
+            })
+            .map_or_else(|| dir.to_path_buf(), Path::to_path_buf)
+    };
+    dir.strip_prefix(&base)
         .unwrap_or(dir)
         .to_string_lossy()
         .replace('\\', "/")

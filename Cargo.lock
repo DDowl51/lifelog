@@ -347,7 +347,6 @@ dependencies = [
  "kernel-api",
  "serde",
  "serde_json",
- "tempfile",
  "tokio",
  "toml",
 ]
@@ -356,7 +355,6 @@ dependencies = [
 name = "boot-build"
 version = "0.1.0"
 dependencies = [
- "tempfile",
  "toml",
 ]
 
@@ -370,7 +368,6 @@ dependencies = [
  "serde",
  "serde_json",
  "tempfile",
- "testkit",
  "tokio",
 ]
 
@@ -380,7 +377,6 @@ version = "0.1.0"
 dependencies = [
  "kernel-api",
  "serde",
- "tokio",
 ]
 
 [[package]]
@@ -391,9 +387,7 @@ dependencies = [
  "kernel-api",
  "rusqlite",
  "serde",
- "serde_json",
  "tempfile",
- "testkit",
  "tokio",
 ]
 
@@ -404,8 +398,6 @@ dependencies = [
  "browser-contract",
  "kernel-api",
  "log-contract",
- "testkit",
- "tokio",
 ]
 
 [[package]]
@@ -416,9 +408,7 @@ dependencies = [
  "kernel-api",
  "rusqlite",
  "serde",
- "serde_json",
  "tempfile",
- "testkit",
  "tokio",
 ]
 
@@ -555,8 +545,6 @@ dependencies = [
  "kernel-api",
  "serde",
  "serde_json",
- "testkit",
- "tokio",
 ]
 
 [[package]]
@@ -573,7 +561,6 @@ version = "0.1.0"
 dependencies = [
  "kernel-api",
  "serde",
- "tokio",
 ]
 
 [[package]]
@@ -584,9 +571,6 @@ dependencies = [
  "jiff",
  "kernel-api",
  "serde",
- "serde_json",
- "testkit",
- "tokio",
 ]
 
 [[package]]
@@ -1270,7 +1254,6 @@ version = "0.1.0"
 dependencies = [
  "kernel-api",
  "serde",
- "tokio",
 ]
 
 [[package]]
@@ -1280,9 +1263,6 @@ dependencies = [
  "files-contract",
  "kernel-api",
  "serde",
- "serde_json",
- "tempfile",
- "testkit",
  "tokio",
 ]
 
@@ -2067,9 +2047,6 @@ name = "kernel"
 version = "0.1.0"
 dependencies = [
  "kernel-api",
- "serde",
- "serde_json",
- "tempfile",
  "tokio",
  "tokio-util",
 ]
@@ -2083,7 +2060,6 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror 2.0.21",
- "tokio",
  "tokio-util",
 ]
 
@@ -2322,7 +2298,6 @@ version = "0.1.0"
 dependencies = [
  "kernel-api",
  "serde",
- "tokio",
 ]
 
 [[package]]
@@ -2332,9 +2307,6 @@ dependencies = [
  "kernel-api",
  "log-contract",
  "serde",
- "serde_json",
- "testkit",
- "tokio",
 ]
 
 [[package]]
@@ -4135,11 +4107,8 @@ dependencies = [
  "kernel-api",
  "rusqlite",
  "serde",
- "serde_json",
  "sha2",
  "sql-contract",
- "tempfile",
- "testkit",
  "tokio",
 ]
 
@@ -4506,7 +4475,6 @@ version = "0.1.0"
 dependencies = [
  "kernel-api",
  "serde",
- "testkit",
  "timer-contract",
  "tokio",
 ]
@@ -4759,7 +4727,6 @@ dependencies = [
  "kernel-api",
  "ratatui",
  "serde",
- "testkit",
  "tokio",
  "tui-contract",
  "unicode-width",
@@ -5278,7 +5245,6 @@ dependencies = [
  "clock-contract",
  "kernel-api",
  "serde",
- "tokio",
 ]
 
 [[package]]
@@ -5419,8 +5385,6 @@ dependencies = [
  "log-contract",
  "serde",
  "serde_json",
- "tempfile",
- "testkit",
  "tokio",
  "window-contract",
 ]

@@ -23,10 +23,14 @@ lifelog 按微内核的方式组织：**kernel 只提供机制，一切能力都
 │  tokenizer-cjk  embed-fastembed  llm-openai-compat                            │
 │  cli-clap  tui-ratatui  mcp-stdio                   ← 展示外壳，内容由功能登记 │
 └──────────────────────────────────────────────────────────────────────────────┘
-┌──────────── kernel（crates/kernel） ───────────────────────────────────────┐
+┌──────────── kernel（../mk-kit/crates/kernel） ─────────────────────────────┐
 │  生命周期 · 命名 · 请求/响应 · 发布/订阅 · 扩展点 · 监听 · 跨进程导出/导入      │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
+
+## 共享仓库 mk-kit
+
+kernel（`kernel-api`、`kernel`、`boot`、`boot-build`、`testkit`）和与 lifelog 无关的系统服务及其契约（存储、命令行、终端界面、时钟、日志、定时器、文件、窗口管理器、浏览历史）在 `../mk-kit`，2026-11-17 用 `git subtree` 从这里迁出，lifelog 在根 `Cargo.toml` 的 `[workspace.dependencies]` 里用 path 依赖它们。留在这里的系统服务（idle、shell、llm、embedder、tokenizer、mcp）目前只有 lifelog 用。改 mk-kit 里的契约要在 mk-kit 和所有使用方各跑一遍 `scripts/check.sh`。
 
 ## 几条规则
 
