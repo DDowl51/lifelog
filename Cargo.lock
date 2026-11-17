@@ -2218,6 +2218,7 @@ dependencies = [
  "project",
  "query",
  "search",
+ "serde_json",
  "shell",
  "shell-atuin",
  "storage-sqlite",

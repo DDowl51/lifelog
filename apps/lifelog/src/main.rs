@@ -30,6 +30,17 @@ async fn run(app: &App, argv: Vec<String>) -> Result<u8, AppError> {
     // 只有常驻进程写数据库；这个进程只读
     let running = boot::start(app, |settings| {
         settings.set("storage-sqlite", "read_only", serde_json::Value::Bool(true));
+        // 存储服务不认识 lifelog，数据库默认放哪由启动器告诉它（配置文件里写了 path 就以配置为准）
+        settings.set_default(
+            "storage-sqlite",
+            "path",
+            serde_json::Value::String(
+                boot::data_dir("lifelog")
+                    .join("lifelog.db")
+                    .to_string_lossy()
+                    .into_owned(),
+            ),
+        );
     })
     .await?;
     let code = match running.resolve(&CLI) {

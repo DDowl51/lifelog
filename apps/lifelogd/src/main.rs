@@ -25,7 +25,33 @@ const USAGE: &str = "\
 const EXIT_SOFTWARE: u8 = 70;
 
 async fn run(app: &App) -> Result<Shutdown, AppError> {
-    let running = boot::start(app, |_| {}).await?;
+    let running = boot::start(app, |settings| {
+        // 存储服务不认识 lifelog，数据库默认放哪由启动器告诉它（配置文件里写了 path 就以配置为准）
+        settings.set_default(
+            "storage-sqlite",
+            "path",
+            serde_json::Value::String(
+                boot::data_dir("lifelog")
+                    .join("lifelog.db")
+                    .to_string_lossy()
+                    .into_owned(),
+            ),
+        );
+        // 笔记、摘要等文件默认写到 ~/lifelog
+        if let Some(home) = std::env::var_os("HOME") {
+            settings.set_default(
+                "files-std",
+                "root",
+                serde_json::Value::String(
+                    std::path::Path::new(&home)
+                        .join("lifelog")
+                        .to_string_lossy()
+                        .into_owned(),
+                ),
+            );
+        }
+    })
+    .await?;
     let why = boot::wait(&running).await;
     running.stop().await;
     why

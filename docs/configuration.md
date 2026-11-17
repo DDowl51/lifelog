@@ -543,7 +543,7 @@ busy_timeout_ms = 5000
 
 | 键 | 说明 |
 |---|---|
-| `path` | 数据库文件，`:memory:` 是内存数据库。不写就用 `$XDG_DATA_HOME/lifelog/lifelog.db`（通常是 `~/.local/share/lifelog/lifelog.db`） |
+| `path` | 数据库文件，`:memory:` 是内存数据库。不写就用 `$XDG_DATA_HOME/lifelog/lifelog.db`（通常是 `~/.local/share/lifelog/lifelog.db`）；这个默认值由 lifelog 的启动器给出 |
 | `read_only` | 只读打开：不建文件、不执行迁移、拒绝写入。只查询的进程由启动器设成 `true` |
 | `busy_timeout_ms` | 别的连接占着锁时最多等多久 |
 
@@ -553,12 +553,12 @@ busy_timeout_ms = 5000
 
 ```toml
 [components.files-std]
-root = "~/lifelog"
+# root = "~/lifelog"
 ```
 
 | 键 | 说明 |
 |---|---|
-| `root` | 根目录。不存在时第一次写入会建出来 |
+| `root` | 根目录。不存在时第一次写入会建出来。不写就用 `~/lifelog`（由 lifelogd 给出） |
 
 ### log-stderr
 
