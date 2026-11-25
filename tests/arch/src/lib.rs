@@ -27,6 +27,9 @@ pub enum Role {
     App,
     /// `tests/*`：检查工具自己。
     Tool,
+    /// `crates/<名>`（kernel 那几个以外）：纯逻辑库，几个功能共用的解析、格式之类。
+    /// 不是组件：不登记、不配置；和 core 一样不碰 IO 和运行时。
+    Lib,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -105,6 +108,8 @@ pub fn classify(rel_path: &str) -> Option<Role> {
         ["crates", "boot-build"] => Some(Role::Tool),
         // 测试用的小工具：核对配置文档和代码里的默认值
         ["crates", "config-doc"] => Some(Role::Tool),
+        // 其余的 crates/*：纯逻辑库
+        ["crates", _] => Some(Role::Lib),
         ["contracts", _] => Some(Role::Contract),
         ["services", _] => Some(Role::Service),
         ["features", id, "contracts"] => Some(Role::FeatureContracts((*id).to_owned())),
@@ -181,6 +186,7 @@ fn verdict(role: &Role, dep: &Dep) -> Option<(&'static str, &'static str)> {
                 "R3",
                 "系统服务的契约不能依赖应用功能；需要业务信息时声明扩展点",
             )),
+            Some(Role::Lib) => Some(("R4", "契约里没有实现，不依赖纯逻辑库")),
             Some(_) => Some(("R4", "契约只能依赖 kernel-api 和别的契约")),
             None => contract_external(name, dep.optional),
         },
@@ -192,7 +198,7 @@ fn verdict(role: &Role, dep: &Dep) -> Option<(&'static str, &'static str)> {
         },
 
         Role::Service => match &dep.internal {
-            Some(Role::KernelApi | Role::Contract) => None,
+            Some(Role::KernelApi | Role::Contract | Role::Lib) => None,
             Some(r) if is_feature(r) => Some((
                 "R3",
                 "系统服务永远不依赖应用功能；需要业务信息时声明扩展点让功能来登记",
@@ -205,8 +211,17 @@ fn verdict(role: &Role, dep: &Dep) -> Option<(&'static str, &'static str)> {
             None => None,
         },
 
+        Role::Lib => match &dep.internal {
+            Some(r) if matches!(r, Role::KernelApi | Role::Lib) || is_any_contract(r) => None,
+            Some(_) => Some(("R8", "纯逻辑库只能依赖 kernel-api、契约包和别的纯逻辑库")),
+            None if IO_CRATES.contains(&name) || RUNTIME_CRATES.contains(&name) => {
+                Some(("R8", "纯逻辑库不碰 IO 和运行时"))
+            }
+            None => None,
+        },
+
         Role::FeatureCore(me) => match &dep.internal {
-            Some(r) if matches!(r, Role::KernelApi) || is_any_contract(r) => None,
+            Some(r) if matches!(r, Role::KernelApi | Role::Lib) || is_any_contract(r) => None,
             Some(Role::FeatureCore(other)) if other == me => None,
             Some(r) if is_plumbing(r) => Some((
                 "R6",
@@ -221,7 +236,7 @@ fn verdict(role: &Role, dep: &Dep) -> Option<(&'static str, &'static str)> {
         },
 
         Role::FeatureComponent(me) => match &dep.internal {
-            Some(r) if matches!(r, Role::KernelApi) || is_any_contract(r) => None,
+            Some(r) if matches!(r, Role::KernelApi | Role::Lib) || is_any_contract(r) => None,
             Some(Role::FeatureCore(other)) if other == me => None,
             Some(Role::FeatureCore(_) | Role::FeatureComponent(_)) => Some((
                 "R1",
@@ -305,6 +320,27 @@ mod tests {
 
     fn feature(id: &str) -> String {
         id.to_owned()
+    }
+
+    #[test]
+    fn libs_are_pure_and_shared_by_cores() {
+        assert_eq!(classify("crates/zh-dates"), Some(Role::Lib));
+        assert_eq!(classify("crates/kernel"), Some(Role::Kernel));
+        assert!(rules(Role::FeatureCore("a".into()), internal("syntax", Role::Lib)).is_empty());
+        assert!(
+            rules(
+                Role::FeatureComponent("a".into()),
+                internal("syntax", Role::Lib)
+            )
+            .is_empty()
+        );
+        assert!(rules(Role::Lib, internal("c", Role::Contract)).is_empty());
+        assert_eq!(rules(Role::Lib, external("tokio")), ["R8"]);
+        assert_eq!(
+            rules(Role::Lib, internal("x", Role::FeatureCore("a".into()))),
+            ["R8"]
+        );
+        assert_eq!(rules(Role::Contract, internal("syntax", Role::Lib)), ["R4"]);
     }
 
     #[test]
